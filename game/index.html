@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+		<script type="module">
+			import Engine from "/engine/Engine.js";
+			import * as GameScenes from "./scenes/GameScenes.js"
+			import * as GamePrefabs from "./prefabs/GamePrefabs.js"
+			import * as GameComponents from "./components/GameComponents.js"
+			let options = {
+				GameScenes, 
+				GamePrefabs, 
+				GameComponents, 
+				mainSceneTitle:"TitleScene", 
+				title:"Bullet Game",
+				width:640, 
+				height:480
+			}
+			Engine.boot(document, options)
+		</script>
+	</head>
+</html>

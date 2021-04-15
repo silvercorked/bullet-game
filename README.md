@@ -1,2 +1,2 @@
-# bullet-game
-A game I made for a class for a browser.
+# web-game
+This is a project made for my Intro to Game Programming class.
