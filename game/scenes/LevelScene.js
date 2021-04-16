@@ -7,32 +7,10 @@ export default {
 				components: [
 					{ name: 'WorldCameraComponent' }
 				],
-                children: [
-                    {
-                        prefabName: 'PlayerShip',
-                        x: 10,
-                        y: 10,
-						sx: 2,
-						sy: 2
-                    },
-                    {
-                        prefabName: 'EnemyShip',
-                        x: 5,
-                        y: 5,
-						sx: 2,
-						sy: 2
-                    },
-                    {
-                        prefabName: 'EnemyShip',
-                        x: 15,
-                        y: 15,
-						sx: 2,
-						sy: 2
-                    }
-                ]
+                children: []
 			},
-			sx: 3,
-			sy: 3
+			sx: 6,
+			sy: 6
 		},
 		{
 			gameObject: {
@@ -59,5 +37,26 @@ export default {
                 ]
 			}
 		},
+		{
+			prefabName: 'PlayerShip',
+			x: 10,
+			y: 10,
+			sx: 2,
+			sy: 2
+		},
+		{
+			prefabName: 'EnemyShip',
+			x: 5,
+			y: 5,
+			sx: 2,
+			sy: 2
+		},
+		{
+			prefabName: 'EnemyShip',
+			x: 15,
+			y: 15,
+			sx: 2,
+			sy: 2
+		}
 	]
 }

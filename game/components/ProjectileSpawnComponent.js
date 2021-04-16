@@ -44,12 +44,11 @@ class ProjectileSpawnComponent extends Component {
 				console.log('instantiating');
 				let shipGeometry = this.gameObject.getComponent('RectangleGeometryComponent');
 				let proj = Instantiate(this.projectile);
-				proj.transform.position.x = this.gameObject.transform.position.x;
-				proj.transform.position.y = this.gameObject.transform.position.y;
-				proj.transform.position.x += Math.cos(this.gameObject.transform.rotation) * shipGeometry.width / 2;
-				proj.transform.position.y += Math.sin(this.gameObject.transform.rotation) * shipGeometry.height / 2;
+				proj.transform.position = this.gameObject.transform.position.clone();
+				proj.transform.position.x += Math.cos(this.gameObject.transform.rotation) * shipGeometry.width;
+				proj.transform.position.y += Math.sin(this.gameObject.transform.rotation) * shipGeometry.height;
 				console.log(proj.transform, this.gameObject.transform);
-
+				
 				//let rigidBody = proj.getComponent('RigidBodyComponent');
 				//rigidBody.heading = this.gameObject.transform.rotation;
 				//rigidBody.velocity = 20;
