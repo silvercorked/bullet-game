@@ -1,7 +1,6 @@
 import Scene from "./Scene.js"
 
 class SceneManager {
-
 	static currentScene;
 	static allComponents;
 	static allPrefabs;
@@ -19,5 +18,4 @@ class SceneManager {
 	}
 }
 
-let sceneManager = new SceneManager();
 export default SceneManager;

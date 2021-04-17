@@ -91,9 +91,10 @@ export default class Vector2 {
 		 *  /____|
 		 * θ   a
 		 */
-		let a = this.x + other.x;
-		let b = this.y + other.y;
-		return Math.atan2(b, a); // tentative (from X axis), + PI / 2 for from Y axis
+		let a = other.x - this.x;
+		let b = other.y - this.y;
+		let theta = Math.atan2(b, a);
+		return theta; // tentative (from X axis), + PI / 2 for from Y axis
 	}
 
 	clone() {

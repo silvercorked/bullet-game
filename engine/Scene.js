@@ -139,6 +139,16 @@ export default class Scene {
 		//console.error("Couldn't find game component " + name)
 	}
 
+	getGameObjects(name) {
+		let gameObjects = [];
+		for (let child of this.children) {
+			if (child.name == name)
+				gameObjects.push(child);
+			gameObjects.push(child.getGameObjects(name));
+		}
+		return gameObjects;
+	}
+
 	/**
 	 * Create a new game object based on the prefab name
 	 */

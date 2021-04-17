@@ -8,10 +8,10 @@ class PlayerShipMoveComponent extends Component {
 	}
 	update() {
 		let inp = globalThis.Input;
-		let up = inp.getKey('ArrowUp');
-		let left = inp.getKey('ArrowLeft');
-		let right = inp.getKey('ArrowRight');
-		let down = inp.getKey('ArrowDown');
+		let up = inp.getKey('w');
+		let left = inp.getKey('a');
+		let right = inp.getKey('d');
+		let down = inp.getKey('s');
 		if (up && left) {
 			this.gameObject.transform.position.x -= this.speed;
 			this.gameObject.transform.position.y -= this.speed;

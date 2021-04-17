@@ -172,6 +172,7 @@ Engine.SceneManager = SceneManager;
 Engine.Time = Time;
 Engine.Vector2 = Vector2;
 Engine.EngineComponents = EngineComponents;
+Engine.halfPI = Math.PI / 2;
 
 globalThis.Instantiate = i => Engine.SceneManager.currentScene.instantiate(i);
 globalThis.Destroy = g => g.destroy();

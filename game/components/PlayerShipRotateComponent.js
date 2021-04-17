@@ -7,9 +7,13 @@ class PlayerShipRotateComponent extends Component {
 	}
 	update() {
 		let ship = this.gameObject;
+		let camera = Engine.SceneManager.currentScene.camera;
 		let shipLoc = new globalThis.Engine.Vector2(ship.transform.position.x, ship.transform.position.y);
 		let cursorPos = globalThis.Input.getMousePosition();
+		cursorPos.x = cursorPos.x / camera.transform.scale.x;
+		cursorPos.y = cursorPos.y / camera.transform.scale.y;
 		ship.transform.rotation = shipLoc.angleTo(cursorPos);
+		//console.log(shipLoc, cursorPos, ship.transform.rotation);
 	}
 }
 

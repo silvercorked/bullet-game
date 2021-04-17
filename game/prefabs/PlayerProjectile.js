@@ -10,5 +10,12 @@ export default {
 			name: 'CircleGeometryComponent',
 			args: [0.5] // height width
 		},
+		{
+			name: 'ProjectileMoveComponent',
+			args: [1, 0]
+		},
+		{
+			name: 'ProjectileDestructionComponent',
+		}
 	],
 }

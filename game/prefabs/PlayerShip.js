@@ -19,7 +19,7 @@ export default {
 		},
 		{
 			name: 'ProjectileSpawnComponent',
-			args: ['PlayerProjectile', 'key', ' ']
+			args: ['PlayerProjectile', 'mouse', 0]
 		}
 	],
 }

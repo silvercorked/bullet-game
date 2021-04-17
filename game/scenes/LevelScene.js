@@ -57,6 +57,6 @@ export default {
 			y: 15,
 			sx: 2,
 			sy: 2
-		}
+		},
 	]
 }

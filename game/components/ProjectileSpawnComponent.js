@@ -1,9 +1,10 @@
 import Component from "../../../engine/Component.js"
 
 class ProjectileSpawnComponent extends Component {
-	static name = "ProjectileSpawnComponent";
-	constructor(gameObject, prefabName, type = 'key', condition = ' ') {
+	static name = 'ProjectileSpawnComponent';
+	constructor(gameObject, prefabName, type = 'key', condition = ' ', spawnrate = 60) {
 		super(gameObject);
+		if (gameObject == undefined) return; // allow creation without game object for instantiation
 		if (typeof prefabName !== 'string')
 			console.error('Invalid prefabName for ProjectileSpawnComponent!', prefabName);
 		else {
@@ -12,12 +13,14 @@ class ProjectileSpawnComponent extends Component {
 				prefabName: this.prefabName,
 			}
 		}
-		if (type == 'key') {
-			if (typeof condition == 'string')
+		if (type == 'key' || type == 'mouse') {
+			if (typeof condition == 'string' || typeof condition == 'number')
 				this.key = condition;
 			else
 				console.log('Invalid condition for ProjectileSpawnComponent!');
-			this.type = 'key';
+			this.type = type;
+			this.spawnrate = spawnrate;
+			this.ticks = 0;
 		}
 		else if (type == 'ticks') {
 			this.ticks = 0;
@@ -38,15 +41,17 @@ class ProjectileSpawnComponent extends Component {
 				Instantiate(this.projectile);
 			}
 		}
-		else if (this.type == 'key') {
-			console.log('got in, checking', globalThis.Input.getKey(this.key), 'for \'', this.key, '\'');
-			if (globalThis.Input.getKey(this.key)) {
+		else if (this.type == 'key' || this.type == 'mouse') {
+			this.ticks++;
+			if (this.ticks >= this.spawnrate && (this.type == 'key' ? globalThis.Input.getKey(this.key) : Input.getMouseButton(this.key))) {
+				this.ticks = 0;
 				console.log('instantiating');
 				let shipGeometry = this.gameObject.getComponent('RectangleGeometryComponent');
 				let proj = Instantiate(this.projectile);
 				proj.transform.position = this.gameObject.transform.position.clone();
-				proj.transform.position.x += Math.cos(this.gameObject.transform.rotation) * shipGeometry.width;
-				proj.transform.position.y += Math.sin(this.gameObject.transform.rotation) * shipGeometry.height;
+				proj.transform.position.x += Math.cos(this.gameObject.transform.rotation) * (shipGeometry.width / 2);
+				proj.transform.position.y += Math.sin(this.gameObject.transform.rotation) * (shipGeometry.height / 2);
+				proj.transform.rotation = this.gameObject.transform.rotation;
 				console.log(proj.transform, this.gameObject.transform);
 				
 				//let rigidBody = proj.getComponent('RigidBodyComponent');
