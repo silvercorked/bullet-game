@@ -154,12 +154,10 @@ class Engine {
 				}
 			}
 		}
-		let fps = 60;
+		let fps = 1 / Engine.spf;
 		setInterval(gameLoop, 1000 / fps)
 	}
 }
-
-
 
 Engine.SceneManager = SceneManager;
 Engine.EngineGeometry = EngineGeometry;
@@ -173,6 +171,7 @@ Engine.Time = Time;
 Engine.Vector2 = Vector2;
 Engine.EngineComponents = EngineComponents;
 Engine.halfPI = Math.PI / 2;
+Engine.spf = 1/60;
 
 globalThis.Instantiate = i => Engine.SceneManager.currentScene.instantiate(i);
 globalThis.Destroy = g => g.destroy();

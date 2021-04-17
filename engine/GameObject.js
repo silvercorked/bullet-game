@@ -104,7 +104,7 @@ export default class GameObject {
      * Draw the game object
      * @param {2D Context from a Canvas} ctx where the game object is drawn
      */
-    draw(layers) {//How does the game object draw itself?
+    draw(layers) { //How does the game object draw itself?
         if(!this.enabled) return;
         let ctx = layers.find(l=>l.name == this.drawLayer).ctx
         ctx.save();

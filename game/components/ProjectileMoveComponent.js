@@ -5,7 +5,7 @@ class ProjectileMoveComponent extends Component {
 	constructor(gameObject, speed = 1) {
 		super(gameObject);
 		if (gameObject == undefined) return;
-		this.speed = speed;
+		this.speed = speed * Engine.spf;
 	}
 	update() {
 		let nextMove = [Math.cos(this.gameObject.transform.rotation) * this.speed, Math.sin(this.gameObject.transform.rotation) * this.speed];

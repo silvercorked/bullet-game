@@ -8,11 +8,11 @@ export default {
 		},
 		{
 			name: 'RectangleGeometryComponent',
-			args: [1, 1] // hieght width
+			args: [1, 1] // height width
 		},
 		{
 			name: 'PlayerShipMoveComponent',
-            args: [1] // speed
+            args: [60] // speed
 		},
 		{
 			name: 'PlayerShipRotateComponent',

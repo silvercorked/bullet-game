@@ -10,5 +10,9 @@ export default {
 			name: 'RectangleGeometryComponent',
 			args: [1, 1] // hieght width
 		},
+		{
+			name: 'EnemyShipMoveComponent',
+			args: [5]
+		}
 	],
 }

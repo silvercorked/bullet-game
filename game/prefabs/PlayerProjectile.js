@@ -12,10 +12,10 @@ export default {
 		},
 		{
 			name: 'ProjectileMoveComponent',
-			args: [1, 0]
+			args: [30]
 		},
 		{
-			name: 'ProjectileDestructionComponent',
+			name: 'ProjectileBounceComponent',
 		}
 	],
 }

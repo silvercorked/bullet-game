@@ -4,7 +4,7 @@ class PlayerShipMoveComponent extends Component {
 	static name = "PlayerShipMoveComponent";
 	constructor(gameObject, speed = 1) {
 		super(gameObject);
-		this.speed = speed;
+		this.speed = speed * Engine.spf;
 	}
 	update() {
 		let inp = globalThis.Input;
@@ -12,30 +12,44 @@ class PlayerShipMoveComponent extends Component {
 		let left = inp.getKey('a');
 		let right = inp.getKey('d');
 		let down = inp.getKey('s');
+		let camera = Engine.SceneManager.currentScene.camera;
+		let shipTransform = this.gameObject.transform.position;
+		let bottomBorder = (Engine.SceneManager.screenHeight / 2) / camera.transform.scale.y;
+		let topBorder = -bottomBorder;
+		let leftBorder = (Engine.SceneManager.screenWidth / 2) / camera.transform.scale.x;
+		let rightBorder = -leftBorder;
 		if (up && left) {
-			this.gameObject.transform.position.x -= this.speed;
-			this.gameObject.transform.position.y -= this.speed;
+			shipTransform.x -= this.speed;
+			shipTransform.y -= this.speed;
 		}
 		else if (left && down) {
-			this.gameObject.transform.position.x -= this.speed;
-			this.gameObject.transform.position.y += this.speed;
+			shipTransform.x -= this.speed;
+			shipTransform.y += this.speed;
 		}
 		else if (down && right) {
-			this.gameObject.transform.position.x += this.speed;
-			this.gameObject.transform.position.y += this.speed;
+			shipTransform.x += this.speed;
+			shipTransform.y += this.speed;
 		}
 		else if (right && up) {
-			this.gameObject.transform.position.x += this.speed;
-			this.gameObject.transform.position.y -= this.speed;
+			shipTransform.x += this.speed;
+			shipTransform.y -= this.speed;
 		}
 		else if (left)
-			this.gameObject.transform.position.x -= this.speed;
+			shipTransform.x -= this.speed;
 		else if (up)
-			this.gameObject.transform.position.y -= this.speed;
+			shipTransform.y -= this.speed;
 		else if (right)
-			this.gameObject.transform.position.x += this.speed;
+			shipTransform.x += this.speed;
 		else if (down)
-			this.gameObject.transform.position.y += this.speed;
+			shipTransform.y += this.speed;
+		if (shipTransform.y > bottomBorder)
+			shipTransform.y = bottomBorder;
+		else if (shipTransform.y < topBorder)
+			shipTransform.y = topBorder;
+		if (shipTransform.x > leftBorder)
+			shipTransform.x = leftBorder;
+		else if (shipTransform.x < rightBorder)
+			shipTransform.x = rightBorder;
 	}
 }
 
