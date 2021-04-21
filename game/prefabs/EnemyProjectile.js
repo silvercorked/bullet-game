@@ -8,7 +8,14 @@ export default {
 		},
 		{
 			name: 'CircleGeometryComponent',
-			args: [0.5] // height width
+			args: [3] // height width
 		},
+		{
+			name: 'ProjectileMoveComponent',
+			args: [120]
+		},
+		{
+			name: 'ProjectileBounceComponent',
+		}
 	],
 }

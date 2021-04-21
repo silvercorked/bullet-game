@@ -5,6 +5,7 @@ export { default as Input } from "./Input.js"
 export { default as SceneManager } from "./SceneManager.js"
 export { default as Time } from "./Time.js"
 export { default as Vector2 } from "./geometry/Vector2.js"
+export { default as Collisions } from './geometry/Collisions.js'
 export * as EngineComponents from "./components/EngineComponents.js"
 export * as EngineGeometry from "./geometry/EngineGeometry.js"
 import Scene from "./Scene.js"
@@ -14,6 +15,7 @@ import Input from "./Input.js"
 import SceneManager from "./SceneManager.js"
 import Time from "./Time.js"
 import Vector2 from "./geometry/Vector2.js"
+import Collisions from './geometry/Collisions.js'
 import * as EngineComponents from "./components/EngineComponents.js"
 import * as EngineGeometry from "./geometry/EngineGeometry.js"
 
@@ -170,6 +172,7 @@ Engine.SceneManager = SceneManager;
 Engine.Time = Time;
 Engine.Vector2 = Vector2;
 Engine.EngineComponents = EngineComponents;
+Engine.inCollision = (one, two) => Collisions.inCollision(one, two)
 Engine.halfPI = Math.PI / 2;
 Engine.spf = 1/60;
 

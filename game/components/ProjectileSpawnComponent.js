@@ -39,7 +39,12 @@ class ProjectileSpawnComponent extends Component {
 			this.ticks++;
 			if (this.ticks > this.ticksMax) {
 				this.ticks = 0;
-				Instantiate(this.projectile);
+				let shipGeometry = this.gameObject.getComponent('RectangleGeometryComponent');
+				let proj = Instantiate(this.projectile);
+				proj.transform.position = this.gameObject.transform.position.clone();
+				proj.transform.position.x += Math.cos(this.gameObject.transform.rotation) * (shipGeometry.width / 2);
+				proj.transform.position.y += Math.sin(this.gameObject.transform.rotation) * (shipGeometry.height / 2);
+				proj.transform.rotation = this.gameObject.transform.rotation;
 			}
 		}
 		else if (this.type == 'key' || this.type == 'mouse') {

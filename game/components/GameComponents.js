@@ -5,3 +5,6 @@ export {default as ProjectileSpawnComponent} from "./ProjectileSpawnComponent.js
 export {default as ProjectileMoveComponent} from "./ProjectileMoveComponent.js"
 export {default as EnemyShipMoveComponent} from "./EnemyShipMoveComponent.js"
 export {default as ProjectileBounceComponent} from "./ProjectileBounceComponent.js"
+export {default as LivesComponent} from "./LivesComponent.js"
+export {default as LevelComponent} from "./LevelComponent.js"
+export {default as EndComponent} from "./EndComponent.js"

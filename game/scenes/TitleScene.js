@@ -14,7 +14,7 @@ export default {
 							components: [
 								{
 									name: 'ScreenTextComponent',
-									args: ['Bullet Game', { alignment: 'center', color: 'white' }],
+									args: ['Projectiles', { alignment: 'center', color: 'white' }],
 								}
 							],
 							children: [

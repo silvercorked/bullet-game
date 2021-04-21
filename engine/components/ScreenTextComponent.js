@@ -23,9 +23,9 @@ class ScreenTextComponent extends Component {
 
         let justification = 0;
         if(this.justification == "middle")
-            justification = ctx.measureText(this.string).fontBoundingBoxAscent / 2;
+            justification = ctx.measureText(this.string).actualBoundingBoxAscent / 2;
         if(this.justification == "top")
-            justification = ctx.measureText(this.string).fontBoundingBoxAscent;
+            justification = ctx.measureText(this.string).actualBoundingBoxAscent;
 
         ctx.fillText(this.string, 
             this.gameObject.transform.position.x + alignment, 

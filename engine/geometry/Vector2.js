@@ -1,6 +1,6 @@
 import Geometry from "./collisions.js"
 
-export default class Vector2 {
+class Vector2 {
 	x;
 	y;
 	constructor(one, two) {
@@ -132,3 +132,5 @@ export default class Vector2 {
 		return one.closeTo(two);
 	}
 }
+
+export default Vector2;

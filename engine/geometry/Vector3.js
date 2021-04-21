@@ -1,6 +1,6 @@
 import Vector2  from "./Vector2.js";
 
-export default class Vector3{
+class Vector3 {
 	x;
 	y;
 	z;
@@ -70,7 +70,7 @@ export default class Vector3{
 	scale(scalar) {
 		this.x *= scalar;
 		this.y *= scalar;
-		this.z *= scalar
+		this.z *= scalar;
 	}
 
 	length() {
@@ -130,3 +130,5 @@ export default class Vector3{
 		this.z = value;
 	}
 }
+
+export default Vector3;

@@ -14,7 +14,7 @@ class SceneManager {
 			return console.log("Trying to change to the current scene " + sceneName)
 		let scene = Scene.deserialize(proposedScene, true);  //Deserialize the scene definition
 		SceneManager.currentScene = scene;
-		scene.callMethod("start")
+		scene.callMethod("start");
 	}
 }
 

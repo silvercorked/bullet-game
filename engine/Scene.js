@@ -142,9 +142,9 @@ export default class Scene {
 	getGameObjects(name) {
 		let gameObjects = [];
 		for (let child of this.children) {
-			if (child.name == name)
-				gameObjects.push(child);
-			gameObjects.push(child.getGameObjects(name));
+			if (child.name == name) gameObjects.push(child);
+			let childGameObjects = []; child.getGameObjects(name);
+			if (childGameObjects.length != 0) gameObjects.push(...childGameObjects);
 		}
 		return gameObjects;
 	}

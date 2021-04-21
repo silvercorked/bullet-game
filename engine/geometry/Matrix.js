@@ -1,7 +1,7 @@
-import Vector2 from "./Vector2.js"
-import Vector3 from "./Vector3.js"
+import Vector2 from "./Vector2.js";
+import Vector3 from "./Vector3.js";
 
-export default class Matrix {
+class Matrix {
 	values = [];
 	static get identity() {
 		return new Matrix();
@@ -167,3 +167,5 @@ export default class Matrix {
 
 	// }
 }
+
+export default Matrix;

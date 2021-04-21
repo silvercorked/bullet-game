@@ -42,7 +42,7 @@ class ChangeSceneComponent extends globalThis.Engine.Component {
 				globalThis.Engine.SceneManager.changeScene(this.scene);
 		}
 		else if (this.type == 'key') {
-			if (globalThis.Input.getKey(this.key))
+			if (globalThis.Input.getKeyDown(this.key))
 				globalThis.Engine.SceneManager.changeScene(this.scene);
 		}
 	}

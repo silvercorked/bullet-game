@@ -8,11 +8,15 @@ export default {
 		},
 		{
 			name: 'RectangleGeometryComponent',
-			args: [1, 1] // hieght width
+			args: [6, 6] // height width
 		},
 		{
 			name: 'EnemyShipMoveComponent',
-			args: [5]
-		}
+			args: [60]
+		},
+		{
+			name: 'ProjectileSpawnComponent',
+			args: ['EnemyProjectile', 'ticks', 100]
+		},
 	],
 }

@@ -139,6 +139,16 @@ export default class GameObject {
         return null;
     }
 
+	getGameObjects(name) {
+		let gameObjects = [];
+		for (let child of this.transform.children) {
+			if (child.name == name) gameObjects.push(child);
+			let childGameObjects = child.getGameObjects(name);
+			if (childGameObjects.length != 0) gameObjects.push(childGameObjects);
+		}
+		return gameObjects;
+	}
+
     static Find(string) {
         return SceneManager.currentScene.getGameObject(string);
     }
@@ -165,8 +175,9 @@ export default class GameObject {
     callMethod(name, args) {
         if(!this.enabled) return
         for (let component of this.components) {
-            if (component[name] && component.enabled)
-                component[name](args);
+            if (component[name] && component.enabled) {
+				component[name](args);
+			}
         }
         for (let child of this.transform.children) {
             child.callMethod(name, args);

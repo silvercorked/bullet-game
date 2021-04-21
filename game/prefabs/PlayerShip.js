@@ -8,11 +8,11 @@ export default {
 		},
 		{
 			name: 'RectangleGeometryComponent',
-			args: [1, 1] // height width
+			args: [6, 6] // height width
 		},
 		{
 			name: 'PlayerShipMoveComponent',
-            args: [60] // speed
+            args: [180] // speed
 		},
 		{
 			name: 'PlayerShipRotateComponent',
@@ -20,6 +20,9 @@ export default {
 		{
 			name: 'ProjectileSpawnComponent',
 			args: ['PlayerProjectile', 'mouse', 0]
+		},
+		{
+			name: 'LivesComponent'
 		}
 	],
 }
