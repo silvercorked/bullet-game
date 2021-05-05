@@ -2,6 +2,9 @@ class LevelComponent extends Engine.Component {
 	static name = 'LevelComponent';
 	constructor(gameObject) {
 		super(gameObject);
+		this.start = () => {
+			console.log('set globalThis.score to 0', globalThis.score)
+		}
 	}
 	update() {
 		let scene = Engine.SceneManager.currentScene;
@@ -22,9 +25,10 @@ class LevelComponent extends Engine.Component {
 						enemyShip.getComponent('RectangleGeometryComponent').asGeometry()
 					)
 				) {
-					console.log('enemyShip hit!', proj1);
+					//console.log('enemyShip hit!', proj1);
 					Destroy(proj1);
 					Destroy(enemyShip);
+					globalThis.score += proj1.getComponent('ProjectileBounceComponent').bounce * 10 + 100; // 100 for ship, +10 per bounce
 				}
 			}
 		}
@@ -36,7 +40,7 @@ class LevelComponent extends Engine.Component {
 				playerShip.getComponent('RectangleGeometryComponent').asGeometry(),
 				proj1.getComponent('CircleGeometryComponent').asGeometry()
 			)) {
-				console.log('PlayerShip Hit!', proj1);
+				//console.log('PlayerShip Hit!', proj1);
 				Destroy(proj1);
 				playerShip.getComponent('LivesComponent').lives--;
 			}
@@ -54,9 +58,11 @@ class LevelComponent extends Engine.Component {
 							.getComponent('CircleGeometryComponent').asGeometry()
 					)
 				) {
-					console.log('collision!', proj1, proj2);
+					//console.log('collision!', proj1, proj2);
 					Destroy(proj1);
 					Destroy(proj2);
+					console.log(proj1, proj2, proj1.getComponent('ProjectileBounceComponent').bounce, proj2.getComponent('ProjectileBounceComponent').bounce)
+					globalThis.score += (proj1.getComponent('ProjectileBounceComponent').bounce + proj2.getComponent('ProjectileBounceComponent').bounce) * 5 + 5; // +5 per bounce
 				}
 			}
 		}

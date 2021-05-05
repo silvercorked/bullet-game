@@ -20,16 +20,37 @@ export default {
 					{
 						gameObject: {
 							name: 'EmptyTextObject',
-							components: [
+							components: [],
+							children: [
 								{
-									name: 'ScreenTextComponent',
-									args: ['Score', { size: '1pt', justification: 'middle', color: 'white' }],
+									gameObject: {
+										name: 'ScoreText',
+										components: [
+											{
+												name: 'ScreenTextComponent',
+												args: ['', { color: 'white' }],
+											}
+										]
+									},
+									drawLayer: 'screen',
+									x: 110,
+									y: 16
 								},
 								{
-									name: 'ScreenTextComponent',
-									args: ['Lives', { size: '2pt', justification: 'middle', color: 'white' }]
+									gameObject: {
+										name: 'LivesText',
+										components: [
+											{
+												name: 'ScreenTextComponent',
+												args: ['', { color: 'white' }]
+											}
+										]
+									},
+									drawLayer: 'screen',
+									x: 0,
+									y: 16
 								}
-							],
+							]
 						}
 					},
 					{
@@ -54,11 +75,31 @@ export default {
 		},
 		{
 			prefabName: 'EnemyShip',
-			x: 5,
+			x: -200,
+			y: -200,
+			sx: 2,
+			sy: 2
+		},
+		{
+			prefabName: 'EnemyShip',
+			x: -25,
+			y: -25,
+			sx: 2,
+			sy: 2
+		},
+		{
+			prefabName: 'EnemyShip',
+			x: 100,
 			y: 5,
 			sx: 2,
 			sy: 2
 		},
-
+		{
+			prefabName: 'EnemyShip',
+			x: 200,
+			y: 150,
+			sx: 2,
+			sy: 2
+		},
 	]
 }

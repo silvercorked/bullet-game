@@ -26,9 +26,8 @@ class ScreenTextComponent extends Component {
             justification = ctx.measureText(this.string).actualBoundingBoxAscent / 2;
         if(this.justification == "top")
             justification = ctx.measureText(this.string).actualBoundingBoxAscent;
-
         ctx.fillText(this.string, 
-            this.gameObject.transform.position.x + alignment, 
+            this.gameObject.transform.position.x + alignment,
             this.gameObject.transform.position.y + justification
 		);
     }

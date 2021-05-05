@@ -23,6 +23,9 @@ export default {
 		},
 		{
 			name: 'LivesComponent'
+		},
+		{
+			name: 'ScoreComponent'
 		}
 	],
 }

@@ -20,11 +20,25 @@ export default {
 							children: [
 								{
 									gameObject: {
-										name: 'SubtitleTextObject',
+										name: 'ScoreTextObject',
 										components: [
 											{
 												name: 'ScreenTextComponent',
-												args: ['Press Space to play again', { font: '10pt arial', alignment: 'center', color: 'white' }]
+												args: ['Final Score: ', { font: '10pt arial', alignment: 'center', color: 'white' }]
+											}
+										],
+										children: [
+											{
+												gameObject: {
+													name: 'SubtitleTextObject',
+													components: [
+														{
+															name: 'ScreenTextComponent',
+															args: ['Press Space to play again', { font: '10pt arial', alignment: 'center', color: 'white' }]
+														}
+													]
+												},
+												y: 40,
 											}
 										]
 									},
@@ -60,7 +74,7 @@ export default {
 							components: [
 								{
 									name: 'EndComponent',
-									args: ['You Win!', 'You Lose!']
+									args: ['You Win!', 'Game Over!']
 								}
 							]
 						}

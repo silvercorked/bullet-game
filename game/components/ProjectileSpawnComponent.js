@@ -61,7 +61,7 @@ class ProjectileSpawnComponent extends Component {
 				proj.transform.rotation = this.gameObject.transform.rotation;
 				//console.log(proj.transform, this.gameObject.transform);
 				let count = Engine.SceneManager.currentScene.getChildren().filter(item => item.name == 'PlayerProjectile').length;
-				console.log('in scene: ', count, '\ncreated: ', this.count);
+				//console.log('in scene: ', count, '\ncreated: ', this.count);
 				//let rigidBody = proj.getComponent('RigidBodyComponent');
 				//rigidBody.heading = this.gameObject.transform.rotation;
 				//rigidBody.velocity = 20;

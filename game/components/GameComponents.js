@@ -8,3 +8,4 @@ export {default as ProjectileBounceComponent} from "./ProjectileBounceComponent.
 export {default as LivesComponent} from "./LivesComponent.js"
 export {default as LevelComponent} from "./LevelComponent.js"
 export {default as EndComponent} from "./EndComponent.js"
+export {default as ScoreComponent} from "./ScoreComponent.js"

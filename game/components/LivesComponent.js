@@ -12,9 +12,17 @@ class LivesComponent extends Component {
 	set lives(newLives) {
 		this.hp = newLives;
 		if (this.hp <= 0) {
-			console.log('ran out of life!');
+			//console.log('ran out of life!');
 			Destroy(this.gameObject);
 		}
+	}
+	update() {
+		let hp = '';
+		for (let i = 0; i < this.hp; i++)
+			hp += '♥';
+		let component = Engine.SceneManager.currentScene.getGameObject('LivesText');
+		if (component)
+			component.getComponent('ScreenTextComponent').string = 'Lives: ' + hp;
 	}
 }
 
